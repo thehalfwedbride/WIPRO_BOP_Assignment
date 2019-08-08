@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<style>
+	.titlebar{
+	color : darkblue;
+	font-family : arial
+	}
+	.section1{
+	background-color: #ebf0fa;
+	text-align: center
+	}
+	.section2{
+	background-color : #99ccff;
+	text-align: center
+	}
+	.time{
+	text-align: right
+	}
+</style>
+<SCRIPT>
+var ID = window.setTimeout("displayTime();",1000);
+	
+		function updateTime() {
+			var date = new Date();
+			return date.toLocaleString();
+		}
+		function displayTime() {
+			document.getElementById("date1").innerHTML = updateTime();
+			ID = window.setTimeout("displayTime();",1000);
+		}
+	
+function display(){
+			var fname= document.getElementById("FIRSTNAME").value;
+			var lname= document.getElementById("LASTNAME").value;
+			var mail= document.getElementById("EMAIL").value;
+			var place= document.getElementById("CITY").value;
+			var num= document.getElementById("AGE").value;
+			var choice= document.getElementById("VIDEO").value;
+			
+			window.alert("DETAILS:\n"+fname+" "+lname+"\n"+mail+"\n"+place+"\t"+num+"\n"+choice);
+			}
+function playpause(){
+	var pp = document.getElementById("WEEK");
+	if(pp.paused)
+	pp.play();
+	else
+	pp.pause();
+}
+</SCRIPT>
+
+<title> Amazing Online Video Library</title>
+
+<head>
+	<div class="titlebar">
+		<h1 align= "center" >AMAZING ONLINE VIDEO LIBRARY</h1>
+		
+	</div><br>
+	<TABLE ALIGNMENT = "CENTER" WIDTH="100%" CELLSPACING="10" CELLPADDING="4">
+		<TR>
+			<TD ALIGN="CENTER"><A HREF ="">HOME</A></TD>
+			<TD ALIGN="CENTER"><A HREF="ABOUT.HTML"> ABOUT US</A></TD>
+			<TD ALIGN="CENTER"><A HREF="careers.HTML"> CAREERS</A></TD>
+		</TR>
+	</TABLE>
+</HEAD>
+
+<BR><BR>
+
+<body>
+<div class="time">
+ <p id="date1"></p>
+</div>
+<div class="section1">
+	<VIDEO SRC= "C:\Users\SU20102336\Desktop\HTML Assignment\_Open_Highway_Long_Road_Winter.mp4" ID="WEEK" ALT="Failed to reload" HEIGHT="50%" WIDTH="60%"></video>
+	<BR><BUTTON ONCLICK="playpause();">PLAY/PAUSE</BUTTON><br>
+	
+	<hr align="CENTER" SIZE="0.1" WIDTH="100%" COLOR="LIGHTGRAY" />
+</div>
+	
+<div class="section2">
+	<FONT face = "Georgia" size="5" align="right"> <u>ENTER DETAILS FOR NEXT WEEK'S VIDEO OF CHOICE</u><P></font>
+		<FORM NAME="NEXT VIDEO OF THE WEEK CHOICE" ACTION="" METHOD="GET">
+			<H4  ALIGN="CENTER">FIRST NAME: <INPUT TYPE="TEXT" ID="FIRSTNAME">
+			<H4 ALIGN="CENTER">LAST NAME: <INPUT TYPE="TEXT" ID="LASTNAME"><BR>
+			<H4 ALIGN="CENTER">EMAIL: <INPUT TYPE="EMAIL" ID="EMAIL"><BR>
+			<H4 ALIGN ="CENTER">CITY: <INPUT TYPE="TEXT" LIST="CITY_LIST" ID="CITY"/>
+			<DATALIST ID="CITY_LIST">
+				<OPTION LABEL="DELHI" VALUE="DELHI"/>
+				<OPTION LABEL="MUMBAI" VALUE="MUMBAI"/>
+				<OPTION LABEL="KOLKATA" VALUE="KOLKATA"/>
+				<OPTION LABEL="CHENNAI" VALUE="CHENNAI"/>
+				<OPTION LABEL="BANGALORE" VALUE="BANGALORE"/>
+				<OPTION LABEL="HYDERABAD" VALUE="HYDERABAD"/>
+			</DATALIST>
+			<H4 ALIGN ="CENTER">AGE: <INPUT TYPE="NUMBER" MIN="18" MAX="120" ID="AGE"/><BR>
+			<H4 ALIGN="CENTER">NEXT WEEK'S VIDEO CHOICE: <INPUT TYPE="TEXT" ID="VIDEO"><BR>
+			<BR><BUTTON ONCLICK="display();">SUBMIT</BUTTON>
+		</FORM>
+</div>
+</BODY>
+
+</html>
